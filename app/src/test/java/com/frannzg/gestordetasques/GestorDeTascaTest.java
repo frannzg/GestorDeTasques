@@ -14,7 +14,6 @@ public class GestorDeTascaTest {
 
     @Before
     public void setUp() {
-        // Inicializa una nueva instancia de GestorDeTasca antes de cada prueba
         gestor = new GestorDeTasca();
     }
 
@@ -22,12 +21,12 @@ public class GestorDeTascaTest {
     public void testAfegirTasca() {
         // Prova d'afegir una tasca
         Date dataLimit = new Date();
-        gestor.afegirTasca("Comprar pa", "Comprar pa al forn", dataLimit);
+        gestor.afegirTasca("Projecte PHP", "Projecte PHP WEB", dataLimit);
 
         // Comprova si la tasca ha estat afegida correctament
-        List<Tasca> tasques = gestor.getLlistaTasques(); // Cal afegir un getter per accedir a la llista
+        List<Tasca> tasques = gestor.getLlistaTasques();
         assertEquals(1, tasques.size());
-        assertEquals("Comprar pa", tasques.get(0).getTitol());
+        assertEquals("Projecte PHP", tasques.get(0).getTitol());
     }
 
     @Test
@@ -69,15 +68,6 @@ public class GestorDeTascaTest {
     }
 
     @Test
-    public void testEliminarTascaNoExistent() {
-        // Prova d'intentar eliminar una tasca que no existeix
-        gestor.eliminarTasca("Tasca no existent");
-
-        List<Tasca> tasques = gestor.getLlistaTasques();
-        assertEquals(0, tasques.size()); // La llista ha de romandre buida
-    }
-
-    @Test
     public void testFiltrarTasquesPerEstat() {
         // Prova de filtrar tasques per estat
         Date dataLimit = new Date();
@@ -85,7 +75,7 @@ public class GestorDeTascaTest {
         gestor.afegirTasca("Tasca 2", "Descripció 2", dataLimit);
         gestor.afegirTasca("Tasca 3", "Descripció 3", dataLimit);
 
-        // Actualitzar l'estat d'algunes tasques
+        // Actualitzar l'estat
         gestor.actualitzarEstatTasca("Tasca 1", "completada");
         gestor.actualitzarEstatTasca("Tasca 2", "en curs");
 

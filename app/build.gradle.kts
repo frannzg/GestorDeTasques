@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.frannzg.gestordetasques"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.frannzg.gestordetasques"
